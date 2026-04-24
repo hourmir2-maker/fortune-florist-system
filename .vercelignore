@@ -1,0 +1,8 @@
+node_modules
+dist
+dist-installer
+.vercel
+.env
+*.exe
+*.zip
+*.7z
