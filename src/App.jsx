@@ -301,16 +301,20 @@ export default function App() {
 
   return (
     <div className="flex h-screen bg-gray-50 font-sans overflow-hidden font-black">
-      <aside className="w-64 bg-white shadow-xl z-10 border-r flex flex-col font-black">
-        <div className="p-8 border-b text-center font-black"><Flower className="mx-auto text-pink-600 mb-2" size={40} /><h1 className="text-xl font-black text-pink-600 uppercase tracking-tighter leading-none font-black">Fortune<br/>Florist</h1><p className="text-[10px] text-gray-400 font-bold uppercase mt-3 tracking-widest font-black leading-none text-center">Admin v4.6 Official</p></div>
-        <nav className="mt-4 px-3 space-y-1 flex-1 overflow-y-auto font-black uppercase font-black uppercase font-black uppercase font-black font-black font-black uppercase font-black font-black uppercase font-black uppercase font-black">
-          <NavItem icon={<LayoutDashboard size={20}/>} label="DASHBOARD" active={activeTab === 'dashboard'} onClick={() => setActiveTab('dashboard')} />
-          <NavItem icon={<Calendar size={20}/>} label="จัดการคิวงาน" active={activeTab === 'workflow'} onClick={() => setActiveTab('workflow')} />
-          <NavItem icon={<Users size={20}/>} label="ฐานลูกค้า" active={activeTab === 'customers'} onClick={() => setActiveTab('customers')} />
-          <NavItem icon={<FileText size={20}/>} label="วางบิล/ใบเสร็จ" active={activeTab === 'billing'} onClick={() => setActiveTab('billing')} />
+      <aside className="w-20 lg:w-64 bg-white shadow-xl z-10 border-r flex flex-col font-black transition-all duration-300">
+        <div className="p-4 lg:p-8 border-b text-center font-black">
+          <Flower className="mx-auto text-pink-600 mb-2" size={32} />
+          <h1 className="hidden lg:block text-xl font-black text-pink-600 uppercase tracking-tighter leading-none">Fortune<br/>Florist</h1>
+          <p className="hidden lg:block text-[10px] text-gray-400 font-bold uppercase mt-3 tracking-widest leading-none text-center">Admin v4.7</p>
+        </div>
+        <nav className="mt-4 px-2 lg:px-3 space-y-1 flex-1 overflow-y-auto font-black uppercase">
+          <NavItem icon={<LayoutDashboard size={20}/>} label="DASHBOARD" active={activeTab === 'dashboard'} onClick={() => setActiveTab('dashboard')} hideLabelOnMobile={true} />
+          <NavItem icon={<Calendar size={20}/>} label="จัดการคิวงาน" active={activeTab === 'workflow'} onClick={() => setActiveTab('workflow')} hideLabelOnMobile={true} />
+          <NavItem icon={<Users size={20}/>} label="ฐานลูกค้า" active={activeTab === 'customers'} onClick={() => setActiveTab('customers')} hideLabelOnMobile={true} />
+          <NavItem icon={<FileText size={20}/>} label="วางบิล/ใบเสร็จ" active={activeTab === 'billing'} onClick={() => setActiveTab('billing')} hideLabelOnMobile={true} />
         </nav>
       </aside>
-      <main className="flex-1 overflow-auto p-10 font-black uppercase font-black uppercase font-black uppercase font-black font-black font-black font-black uppercase font-black font-black uppercase font-black uppercase font-black">
+      <main className="flex-1 overflow-auto p-4 lg:p-10 font-black uppercase">
         <header className="flex justify-between items-center mb-10 bg-white p-5 rounded-[2rem] shadow-sm px-10 border leading-none font-black uppercase">{activeTab}<div className="flex bg-green-50 px-3 py-1 rounded-full border border-green-200 text-green-700 text-[10px] uppercase font-black tracking-widest font-black uppercase tracking-widest font-black font-black uppercase tracking-widest font-black font-black font-black uppercase tracking-widest font-black font-black uppercase tracking-widest font-black uppercase font-black font-black uppercase tracking-widest font-black font-black uppercase tracking-widest font-black uppercase font-black">Admin Active</div></header>
         {activeTab === 'dashboard' && <DashboardView stats={stats} orders={orders} />}
         {activeTab === 'workflow' && <WorkflowView orders={orders} onRefresh={fetchData} onPrint={(t, o) => setPrintDoc({type:t, order:o})} />}

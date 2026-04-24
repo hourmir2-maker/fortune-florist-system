@@ -17,8 +17,8 @@ function createWindow() {
     title: "Fortune Florist & Y.Phat Wedding"
   });
 
-  // เปิด DevTools เสมอแม้ในโหมดติดตั้ง เพื่อให้เห็น Error
-  mainWindow.webContents.openDevTools();
+  // ปิด DevTools เพื่อให้เป็นโหมดผู้ใช้งานจริง
+  // mainWindow.webContents.openDevTools();
 
   // ใช้ loadFile แทน loadURL เพื่อความเสถียรสูงสุดบน Windows
   mainWindow.loadFile(path.join(__dirname, 'dist', 'index.html'));
